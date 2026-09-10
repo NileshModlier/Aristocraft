@@ -7,6 +7,7 @@ import SectionHeading from '../components/ui/SectionHeading'
 import Button from '../components/ui/Button'
 import Seo from '../components/seo/Seo'
 import InstagramIcon from '../components/ui/InstagramIcon'
+import { CONVERSION_EVENTS, trackConversion } from '../lib/analytics'
 
 const INTERESTS = PRODUCTS.map((p) => p.name)
 
@@ -58,6 +59,7 @@ export default function Contact() {
     const next = validate()
     setErrors(next)
     if (Object.keys(next).length) return
+    trackConversion(CONVERSION_EVENTS.inquiry)
     window.open(SITE.whatsappUrl(payload()), '_blank', 'noopener,noreferrer')
     setSent(true)
   }
