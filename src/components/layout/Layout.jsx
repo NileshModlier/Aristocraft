@@ -4,6 +4,7 @@ import Navbar from './Navbar'
 import Footer from './Footer'
 import WhatsAppFloat from '../ui/WhatsAppFloat'
 import JsonLd from '../seo/JsonLd'
+import VercelAnalytics from '../seo/VercelAnalytics'
 
 export default function Layout() {
   const { pathname, hash } = useLocation()
@@ -29,6 +30,7 @@ export default function Layout() {
       </a>
       <Navbar />
       <JsonLd />
+      <VercelAnalytics />
       <main id="main">
         <Outlet />
       </main>
